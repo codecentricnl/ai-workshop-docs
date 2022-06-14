@@ -6,7 +6,7 @@ const config = {
   title: 'GraphQL and Spring Boot',
   tagline: 'Build a GraphQL service with Spring Boot',
   url: 'https://codecentric.nl',
-  baseUrl: '/graphql-docs',
+  baseUrl: '/graphql-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
