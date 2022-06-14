@@ -55,8 +55,8 @@ const config = {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
-      additionalLanguages: ['dart'],
-      defaultLanguage: 'dart',
+      additionalLanguages: ['java', 'graphql'],
+      defaultLanguage: 'java',
     },
   },
 };
