@@ -6,7 +6,7 @@ const config = {
   title: 'GraphQL and Spring Boot',
   tagline: 'Build a GraphQL service with Spring Boot',
   url: 'https://codecentric.nl',
-  baseUrl: '/',
+  baseUrl: '/graphql-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -55,8 +55,8 @@ const config = {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
-      additionalLanguages: ['dart'],
-      defaultLanguage: 'dart',
+      additionalLanguages: ['java', 'graphql'],
+      defaultLanguage: 'java',
     },
   },
 };
