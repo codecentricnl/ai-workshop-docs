@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Mutations are not different from queries other than that they illustrate that 
 a mutation has a side effect, whereas a query doesn't.
-Let's add a mutation to our schema, note that we need specify `input` when we have a complex 
+Let's add a mutation to our schema, note that we need to specify `input` when we have a complex 
 type as an argument
 
 ```graphql
