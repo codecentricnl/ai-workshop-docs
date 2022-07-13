@@ -16,7 +16,7 @@ type Movie {
     actors: [Actors!]!
 }
 
-type Actors {
+type Actor {
     name: String
     dateOfBirth: String
 }
@@ -38,4 +38,3 @@ Add the following method in your `MovieController`
 
 Try this out or get it to work. 
 Let us know if you are hitting into issues.
-
