@@ -14,7 +14,7 @@ type Query {
 It defines that we have a Query, called helloWorld, and it returns a String.
 However, if we invoke the Query via our GraphiQL client, we are getting an error.
 That error tells us that you should never get null as a result according to 
-the graph note the exclamation behind the string.
+the graph (note the exclamation mark behind the String).
 However, it still is null. Let's create a resolver that resolves that issue.
 
 in your src directory `src/main/java/nl/codecentric/springforgraphql`
