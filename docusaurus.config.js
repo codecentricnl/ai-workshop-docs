@@ -3,15 +3,15 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'GraphQL and Spring Boot',
-  tagline: 'Build a GraphQL service with Spring Boot',
+  title: 'DDD and \"clean hexagonal onion\" architecture with Spring',
+  tagline: 'How to apply all this in a Spring Boot application',
   url: 'https://codecentric.nl',
-  baseUrl: '/graphql-docs/',
+  baseUrl: '/clean-hexagonal-onion-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'codecentricnl', // Usually your GitHub org/user name.
-  projectName: 'todo', // Usually your repo name.
+  projectName: 'clean-hexagonal-onion-service', // Usually your repo name.
 
   presets: [
     [
@@ -21,7 +21,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/codecentricnl/flutter_basic_workshop/tree/master/docs',
+          editUrl: 'https://github.com/MaikKingma/clean-hexagonal-onion-docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -36,14 +36,14 @@ const config = {
     },
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {
-      title: 'Workshop',
+      title: 'Codecentric Expert Workshop',
       logo: {
         alt: 'Workshop',
-        src: 'img/logo.svg',
+        src: 'img/ccnl-colored.svg',
       },
       items: [
         {
-          href: 'https://github.com/codecentricnl/flutter_basic_workshop',
+          href: 'https://github.com/MaikKingma/clean-hexagonal-onion-service',
           label: 'GitHub',
           position: 'right',
         },
