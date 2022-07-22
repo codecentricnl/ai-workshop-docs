@@ -1,8 +1,0 @@
-{
-  "label": "3 - Testing",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "description": "Learn to test you Spring for GraphQL service"
-  }
-}
