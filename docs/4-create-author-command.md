@@ -34,7 +34,7 @@ _And what about the id?_ Rest assured! we will solve this later. It remains null
 
 ![author.png](author.png)
 
-####Domain interaction layer
+#### Domain interaction layer
 In order to be able to manipulate or persist our core domain objects we need to define an interface
 ```/domain/author/AuthorService.java``` in our domain package according to the domain model. We now inject this into 
 our ```AuthorCommands.java```class in the constructor (you could autowire it but let's stick to constructor injection).

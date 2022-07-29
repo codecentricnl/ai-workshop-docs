@@ -190,7 +190,7 @@ Now run the test...
 if (allTestsGreen == true) {
     log.info("DONE! Let's move on to the next topic: Querying our Domain.")}
 else{
-        log.error("Sout for help!") || (git stash && git checkout 5-persist-author-data-done)
+    log.error("Sout for help!") || (git stash && git checkout 5-persist-author-data-done)
 }
 ```
 

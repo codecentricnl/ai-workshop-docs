@@ -32,7 +32,7 @@ const config = {
 
   themeConfig: {
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
     },
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {

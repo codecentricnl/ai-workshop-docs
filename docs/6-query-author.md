@@ -1,6 +1,15 @@
 ---
 sidebar_position: 6
 ---
+
+# Query Authors
+
+**_What goes up must come down!_**
+
+or in our case
+
+**_What goes into the DB must come out!_**
+
 ### OPTIONAL: Run the app on localhost
 Btw if you run your docker compose file and start the Spring app you can also test your API at runtime manually.
 Got to ``http/AuthorCommands.http`` and run the request against your localhost:8080
@@ -18,15 +27,7 @@ Content-Type: application/json
 }
 ```
 
-# Query Authors
-
-**_What goes up must come down!_**
-
-or in our case
-
-**_What goes into the DB must come out!_**
-
-### Implement Query endpoint
+### Implement the Query endpoint
 
 We want to make our authors readable via our REST API. For that purpose we introduce
 
@@ -38,15 +39,18 @@ Let's see how far you get!
   the query layer from our domain core. Hence, introduce the following view model that our query will return:
 
 ```java
-@Value
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuthorView {
-    public AuthorView(Author author) {
-        this.id = author.getId();
-        this.name = author.getFullName();
-    }
+  public AuthorView(Author author) {
+    this.id = author.getId();
+    this.name = author.getFullName();
+  }
 
-    Long id;
-    String name;
+  Long id;
+  String name;
 }
 ```
 
@@ -56,3 +60,51 @@ public class AuthorView {
 
 ### Validate
 
+Let's test your implementation:
+
+```java
+@SpringBootTest
+@AutoConfigureMockMvc
+class AuthorQueriesTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private AuthorRepository authorRepository;
+
+    @BeforeEach
+    void beforeAll() {
+        authorRepository.deleteAll();
+    }
+
+    @Test
+    void getAll() throws Exception {
+        // given
+        var authorJPA = AuthorJPA.builder().firstName("firstName").lastName("lastName").build();
+        authorRepository.save(authorJPA);
+        authorRepository.flush();
+        AuthorView expected = new AuthorView(Author.createAuthor("firstName", "lastName"));
+        // when then
+        MvcResult result = mockMvc.perform(get("/authors")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        var resultingAuthorViews = objectMapper.readValue(
+                result.getResponse().getContentAsString(), new TypeReference<List<AuthorView>>() {});
+        assertThat(resultingAuthorViews).usingRecursiveFieldByFieldElementComparatorIgnoringFields("id").containsExactly(expected);
+    }
+}
+```
+
+```javascript
+if (allTestsGreen == true) {
+    log.info("DONE! Let's move on to the next topic: The ACL adapter")}
+else{
+    log.error("Sout for help!") || (git stash && git checkout 6-query-author-done)
+}
+```
