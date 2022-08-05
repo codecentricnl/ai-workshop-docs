@@ -105,6 +105,6 @@ class AuthorQueriesTest {
 if (allTestsGreen == true) {
     log.info("DONE! Let's move on to the next topic: The ACL adapter")}
 else{
-    log.error("Sout for help!") || (git stash && git checkout 6-query-author-done)
+    log.error("Shout for help!") || (git stash && git checkout 6-query-author-done)
 }
 ```

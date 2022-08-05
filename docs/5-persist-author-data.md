@@ -186,11 +186,11 @@ spring.liquibase.change-log=classpath:db/db.changelog-master.xml
 
 Now run the test...
 
-```java
+```javascript
 if (allTestsGreen == true) {
     log.info("DONE! Let's move on to the next topic: Querying our Domain.")}
 else{
-    log.error("Sout for help!") || (git stash && git checkout 5-persist-author-data-done)
+    log.error("Shout for help!") || (git stash && git checkout 5-persist-author-data-done)
 }
 ```
 

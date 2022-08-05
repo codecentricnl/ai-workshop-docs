@@ -11,18 +11,19 @@ interaction layer) parts of the "clean hexagonal onion".
 
 We need to create a REST endpoint that allows us to register Authors.
 
-```json
-POST /authors/commands/register
+```http request
+### Register an author
+POST /authors/commands/register HTTP/1.1
+Host: localhost:8080
 Content-Type: application/json
-Response: 202 - Accepted
-Body:
+
 {
-    "firstName": "Maik",
-    "lastName": "Kingma"
+  "firstName": "PLACE_YOUR_FIRST_NAME",
+  "lastName": "PLACE_YOUR_LAST_NAME"
 }
 ```
 This endpoint should create an Author from the given DTO payload and call the register function of an author on the 
-domain interaction layer service.
+domain interaction layer service. The standard response should be empty with a status code 202.
 
 ### Domain
 
@@ -45,10 +46,7 @@ Nice to know: this complies with the SOLID principle (dependency inversion).
 ### Data Source
 No injection without at least one Spring Bean implementing the interface. In ```/datasource/author/AuthorServiceImpl.
 java``` we implement ```/domain/author/AuthorService.java``` and annotate it with the ```@Service``` annotation from Spring. 
-For now 
-simply add a log 
-statement to the 
-method 
+For now simply add a log statement to the method 
 ```void registerAuthor(Author author)```
 
 ### Validation
