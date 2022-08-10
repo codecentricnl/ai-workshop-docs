@@ -78,7 +78,13 @@ class AuthorCommandsTest {
 }
 ```
 
-DONE! Let's move on to the next topic: **Persisting Data**.
+```javascript
+if (allTestsGreen == true) {
+    log.info("DONE! Let's move on to the next topic: **Persisting Data**.")}
+else{
+    log.error("Shout for help!") || (git stash && git checkout 4-create-author-command-done)
+}
+```
 
 
 

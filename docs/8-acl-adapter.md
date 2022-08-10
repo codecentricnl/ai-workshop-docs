@@ -7,6 +7,7 @@ sidebar_position: 8
 We now want to publish a book. But in order to do so we need to know which publishers are even available to do so.
 We will assume for the sake of the exercise that we need to retrieve that information from an external system.
 
+### The "third party" service
 Please check out the project https://github.com/MaikKingma/publisher-service.
 It is another Spring service you will be able to retrieve the Publisher data from via the following API call:
 
@@ -16,7 +17,7 @@ GET /publishers HTTP/1.1
 Host: localhost:8081
 Accept: application/json
 ```
-
+### Implementation
 In order to protect our domain from corruption and limit the service coupling to lose coupling only we introduce a 
 wrapping API endpoint of our own in our clean-hexagonal-onion-service as follows:
 
@@ -83,7 +84,7 @@ please add this line to the ``src/test/resources/application.properties``
 # Publisher service
 publisher.service.host: http://localhost:${mockServerPort}
 ```
-and also add these dependencies
+and also add these dependencies (we need no test scope on the last two as we will use them in runtime code later on)
 
 ```xml
 <dependency>
@@ -96,13 +97,11 @@ and also add these dependencies
     <groupId>javax.json</groupId>
     <artifactId>javax.json-api</artifactId>
     <version>1.1.4</version>
-    <scope>test</scope>
 </dependency>
 <dependency>
     <groupId>org.glassfish</groupId>
     <artifactId>javax.json</artifactId>
     <version>1.1.4</version>
-    <scope>test</scope>
 </dependency>
 ```
 
