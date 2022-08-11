@@ -11,10 +11,10 @@ or in our case
 **_What goes into the DB must come out!_**
 
 ### OPTIONAL: Run the app on localhost
-Btw if you run your docker compose file and start the Spring app you can also test your API at runtime manually.
-Got to ``http/AuthorCommands.http`` and run the request against your localhost:8080
+By the way, if you run your docker compose file and start the Spring app you can also test your API at runtime manually.
+Got to ``http/AuthorCommands.http`` and run the request against your localhost:8080.
 
-(in case you don't have it)
+(in case you don't have it, as it is part of my part of prepared *-done branches)
 ```
 ### Register an author
 POST /authors/commands/register HTTP/1.1
@@ -28,7 +28,6 @@ Content-Type: application/json
 ```
 
 ### Implement the Query endpoint
-
 We want to make our authors readable via our REST API. For that purpose we introduce
 
 ```
