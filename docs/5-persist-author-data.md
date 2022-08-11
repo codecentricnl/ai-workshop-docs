@@ -3,9 +3,8 @@ sidebar_position: 5
 ---
 
 # Persist the Author data to the DB
-
 For this step you will need to create classes and an interface in the data source section of the "clean hexagonal 
-onion". Also, we need to create a DB migration script with liquibase to enable JPA for our Author entity
+onion". Also, we need to create a DB migration script with liquibase to enable the JPA for our Author entity
 
 ### Liquibase
 Uncomment the liquibase dependency in ``./pom.xml`` 
@@ -81,16 +80,14 @@ create file src/main/resources/db/changelog/02_create_author_table.xml with cont
 ```
 
 ### Persistence with JPA
-
-Following the clear segregation of duties in our "clean hexagonal onion" we need to create a number of classes to 
-achieve persistance. This can seem overkill at first, but remember, DDD is not for small POCs or start up projects. 
+Following the clear segregation of duties in our "clean hexagonal onion", we need to create a number of classes to 
+achieve persistence. This can seem overkill at first, but remember, DDD is not for small POCs or start up projects. 
 It is designed to solve complexity for bigger projects, and so is our "clean hexagonal onion".
 
 We will need to create a JPA entity for our Author, a mapper class that maps from domain to JPA, and an actual JPA 
 repository interface that links our entity to the DB.
 
 #### JPA entity
-
 create a class ``/datasource/AuthorJPA.java`` annotated with
 
 ```java
@@ -100,12 +97,12 @@ create a class ``/datasource/AuthorJPA.java`` annotated with
 @AllArgsConstructor
 @Table(name = "author")
 ```
-Fill this class with the same fields as the Author.java class. By adding this JPA class which is independent from 
-the domain aggregate, we keep the domain only loosely coupled to the domain core. What we often see in SPring 
-applications is that the domain aggregate is the data model at the same time.
+Fill this class with the same fields as the Author.java class. By adding this JPA class, which is independent of 
+the domain aggregate, we keep the domain only loosely coupled to the domain core. Usually, what we often see in Spring 
+applications is that the domain aggregate is the data entity and domain entity/aggregate at the same time.
 
-Now we need to teach our AuthorJPA data model where to get the id from in the DB. For that purpose we already 
-created the liquibase script that generated a author_seq for us.
+Having created that class, we now need to teach our AuthorJPA data model where to get the id from in the DB. For that 
+purpose we already created the liquibase script that generated an author_seq for us.
 We annotate our id field with the following:
 ```java
 @Id
@@ -114,14 +111,12 @@ We annotate our id field with the following:
 ```
 
 #### JPA repository
-
 create an interface ``/datasource/AuthorRepository.java`` that extends ``JPARepository<Author, Long>`` and annotate 
 the interface with ``@Repository``
 
 #### JPA to domain Mapper
-
-Since we decoupled our data model from the actual domain model we need to teach our application how to map between 
-domain and data model. There are fancy libraries for this such as mapstruct but let us code it out for now.
+Since we decoupled our data model from the actual domain model, we need to teach our application how to map between 
+domain and data model. There are fancy libraries for this such as mapstruct but let us code it ourselves for now.
 
 Create a class ``/datasource/AuthorMapper.java`` with a method that maps all fields of Author.class to the 
 corresponding fields of AuthorJPA.class and returns the instance of it.
@@ -130,14 +125,12 @@ Method signature:
 public static AuthorJPA mapToJPA(Author author)
 ```
 
-#### updating the AuthorServiceImpl
-In the previous task we only added a log statement to the _AuthorServiceImpl.registerAuthor_ implementation.
-Inject the AuthorRepository into the AuthorServiceImpl and update _AuthorServiceImpl.registerAuthor_ in such a way 
-that the Author is persisted to the DB.
+#### Updating the AuthorServiceImpl.java
+In the previous task we only added a log statement to the ``AuthorServiceImpl.registerAuthor`` implementation.
+Inject the AuthorRepository into the AuthorServiceImpl and update the function in such a way that the Author is persisted to the DB.
 
 
 ### Validation
-
 Let's test your implementation. Update the AuthorCommandsTest.java with this Test:
 
 ```java

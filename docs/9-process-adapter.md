@@ -116,7 +116,7 @@ task 4.
 Having done all that the ``AbstractAggregateRoot`` will do the publishing for us. So on to the next task: we need to 
 be able to consume these events:
 
-### Task 6: Consume the published domain event.
+### 6. Task: Consume the published domain event.
 
 Create a class ``/process/EventProcessor.java``:
 ```java
@@ -150,7 +150,7 @@ public class EventProcessor {
 This implementation will allow for the domain events on a JPA entity to be processed after the transaction was 
 committed.
 
-### Task 7: Delegate Implementation
+### 7. Task: Delegate Implementation
 Now try to actually implement the ``/process/book/PublishBookDelegate.java`` class.
 
 Useful snippet:
