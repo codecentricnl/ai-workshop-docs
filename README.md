@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+You can find the documentation here: https://maikkingma.github.io/clean-hexagonal-onion-docs/
 
 ### Installation
 
