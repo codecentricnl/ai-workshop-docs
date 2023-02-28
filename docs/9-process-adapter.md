@@ -121,8 +121,8 @@ be able to consume these events:
 Create a class ``/process/EventProcessor.java``:
 ```java
 import lombok.extern.slf4j.Slf4j;
-import nl.codecentric.clean_hexagonal_onion_service.domain.book.Book;
-import nl.codecentric.clean_hexagonal_onion_service.process.book.PublishBookDelegate;
+import nl.theexperts.clean_hexagonal_onion_service.domain.book.Book;
+import nl.theexperts.clean_hexagonal_onion_service.process.book.PublishBookDelegate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
@@ -284,7 +284,7 @@ class BookCommandsTest {
     private void configureMockGetPublisherById(String publisherId) {
         var responseBody = Json.createObjectBuilder()
                         .add("id", publisherId)
-                        .add("name", "Codecentric")
+                        .add("name", "the/experts")
                         .add("taxNumber", "VAT12345")
                         .add("numberOfEmployees", 30)
                         .add("yearlyRevenueInMillions", 99)
@@ -304,7 +304,7 @@ class BookCommandsTest {
 Testing the event publishing (we need a helper class for this one):
 ``src/test/.../domain/book/TestEventHandler.java``
 ```java
-import nl.codecentric.clean_hexagonal_onion_service.process.DomainEvent;
+import nl.theexperts.clean_hexagonal_onion_service.process.DomainEvent;
 import org.springframework.transaction.event.TransactionalEventListener;
 
 interface TestEventHandler {
@@ -315,9 +315,9 @@ interface TestEventHandler {
 ```
  ``src/test/.../domain/book/BookTest.java``
 ```java
-import nl.codecentric.clean_hexagonal_onion_service.datasource.author.AuthorRepository;
-import nl.codecentric.clean_hexagonal_onion_service.domain.author.Author;
-import nl.codecentric.clean_hexagonal_onion_service.domain.author.AuthorService;
+import nl.theexperts.clean_hexagonal_onion_service.datasource.author.AuthorRepository;
+import nl.theexperts.clean_hexagonal_onion_service.domain.author.Author;
+import nl.theexperts.clean_hexagonal_onion_service.domain.author.AuthorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -379,8 +379,8 @@ class BookTest {
 ```
 Testing the event processor in ``src/test/.../process/EventProcessorTest.java``:
 ```java
-import nl.codecentric.clean_hexagonal_onion_service.domain.book.Book;
-import nl.codecentric.clean_hexagonal_onion_service.process.book.PublishBookDelegate;
+import nl.theexperts.clean_hexagonal_onion_service.domain.book.Book;
+import nl.theexperts.clean_hexagonal_onion_service.process.book.PublishBookDelegate;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -414,12 +414,12 @@ class EventProcessorTest {
 ```
 Testing the delegate and ACL interaction in ``src/test/.../process/book/PublishBookDelegateTest.java``:
 ```java
-import nl.codecentric.clean_hexagonal_onion_service.domain.author.Author;
-import nl.codecentric.clean_hexagonal_onion_service.domain.author.AuthorService;
-import nl.codecentric.clean_hexagonal_onion_service.domain.book.Book;
-import nl.codecentric.clean_hexagonal_onion_service.domain.book.BookService;
-import nl.codecentric.clean_hexagonal_onion_service.domain.book.Genre;
-import nl.codecentric.clean_hexagonal_onion_service.domain.publisher.PublisherService;
+import nl.theexperts.clean_hexagonal_onion_service.domain.author.Author;
+import nl.theexperts.clean_hexagonal_onion_service.domain.author.AuthorService;
+import nl.theexperts.clean_hexagonal_onion_service.domain.book.Book;
+import nl.theexperts.clean_hexagonal_onion_service.domain.book.BookService;
+import nl.theexperts.clean_hexagonal_onion_service.domain.book.Genre;
+import nl.theexperts.clean_hexagonal_onion_service.domain.publisher.PublisherService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockserver.client.MockServerClient;
