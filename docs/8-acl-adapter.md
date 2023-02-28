@@ -37,7 +37,7 @@ Hence, implement our new API endpoint in such a way that we receive the response
 [
   {
     "id": "55699ecc-42dc-42cf-8290-1207655140e2",
-    "name": "Codecentric"
+    "name": "the/experts"
   },
   {
     "id": "5e659183-411c-42af-8bed-2225a2165c59",
@@ -108,7 +108,7 @@ and also add these dependencies (we need no test scope on the last two as we wil
 ```java
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.codecentric.clean_hexagonal_onion_service.domain.publisher.Publisher;
+import nl.theexperts.clean_hexagonal_onion_service.domain.publisher.Publisher;
 import org.junit.jupiter.api.Test;
 import org.mockserver.client.MockServerClient;
 import org.mockserver.model.Header;
@@ -151,7 +151,7 @@ class PublisherQueryTest {
 
         var expectedPublisher1 = Publisher.builder()
                 .id(UUID.fromString("55699ecc-42dc-42cf-8290-1207655140e2"))
-                .name("Codecentric")
+                .name("the/experts")
                 .build();
         var expectedPublisher2 =
                 Publisher.builder()
@@ -181,7 +181,7 @@ class PublisherQueryTest {
         var responseBody = Json.createArrayBuilder()
                 .add(Json.createObjectBuilder()
                         .add("id", "55699ecc-42dc-42cf-8290-1207655140e2")
-                        .add("name", "Codecentric")
+                        .add("name", "the/experts")
                         .add("taxNumber", "VAT12345")
                         .add("numberOfEmployees", 30)
                         .add("yearlyRevenueInMillions", 99)
