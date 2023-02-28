@@ -70,13 +70,13 @@
   border: 0;
 }
 
-.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
+main {
   background-image: url("/static/img/behang.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
 
-.theme-doc-sidebar-container{
+aside {
   background: rgb(39,41,47);
 }
