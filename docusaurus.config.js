@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 /** @type {import('@docusaurus/types').Config} */
@@ -38,13 +38,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {
       title: 'BDD with ChatGPT Workshop',
-      hideOnScroll: true,
       logo: {
         alt: 'the/experts.',
-        src: 'img/theexperts_ZwartOranje.png',
-        srcDark: 'img/theexperts_WitOranje.png',
-        width: 130,
-        height: 32,
+        src: 'img/theexperts_WitOranje.png',
+        //srcDark: 'img/theexperts_WitOranje.png',
       },
       items: [
         {
