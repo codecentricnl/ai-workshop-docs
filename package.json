@@ -1,6 +1,6 @@
 {
-  "name": "clean-hexagonal-onion-docs",
-  "version": "0.0.0",
+  "name": "ai-workshop-docs",
+  "version": "0.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
