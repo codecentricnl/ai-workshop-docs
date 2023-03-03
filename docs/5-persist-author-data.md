@@ -82,13 +82,14 @@ create file src/main/resources/db/changelog/02_create_author_table.xml with cont
 ### Persistence with JPA
 Following the clear segregation of duties in our "clean hexagonal onion", we need to create a number of classes to 
 achieve persistence. This can seem overkill at first, but remember, DDD is not for small POCs or start up projects. 
-It is designed to solve complexity for bigger projects, and so is our "clean hexagonal onion".
+It is designed to solve complexity for bigger projects, and so is our "clean hexagonal onion". We value simplicity,
+clarity and maintainability over cleverness and complexity.
 
 We will need to create a JPA entity for our Author, a mapper class that maps from domain to JPA, and an actual JPA 
 repository interface that links our entity to the DB.
 
 #### JPA entity
-create a class ``/datasource/AuthorJPA.java`` annotated with
+create a class ``/data/AuthorJPA.java`` annotated with
 
 ```java
 @Entity
@@ -101,8 +102,8 @@ Fill this class with the same fields as the Author.java class. By adding this JP
 the domain aggregate, we keep the domain only loosely coupled to the domain core. Usually, what we often see in Spring 
 applications is that the domain aggregate is the data entity and domain entity/aggregate at the same time.
 
-Having created that class, we now need to teach our AuthorJPA data model where to get the id from in the DB. For that 
-purpose we already created the liquibase script that generated an author_seq for us.
+Having created that class, we now need to teach our AuthorJPA data model where to get the id from in the DB. We have 
+already created the liquibase script that generates an author_seq for us.
 We annotate our id field with the following:
 ```java
 @Id
@@ -111,19 +112,22 @@ We annotate our id field with the following:
 ```
 
 #### JPA repository
-create an interface ``/datasource/AuthorRepository.java`` that extends ``JPARepository<Author, Long>`` and annotate 
+create an interface ``/data/AuthorRepository.java`` that extends ``JPARepository<AuthorJPA, Long>`` and annotate 
 the interface with ``@Repository``
 
 #### JPA to domain Mapper
-Since we decoupled our data model from the actual domain model, we need to teach our application how to map between 
-domain and data model. There are fancy libraries for this such as mapstruct but let us code it ourselves for now.
+Since we want to decouple our data model from the actual domain model, we need to teach our application how to map between 
+domain and data model. There are fancy libraries for this such as [mapstruct](https://mapstruct.org/) but let us code 
+it ourselves for now.
 
-Create a class ``/datasource/AuthorMapper.java`` with a method that maps all fields of Author.class to the 
+Create a class ``/data/AuthorMapper.java`` with a method that maps all fields of Author.class to the 
 corresponding fields of AuthorJPA.class and returns the instance of it.
 Method signature:
 ```java
 public static AuthorJPA mapToJPA(Author author)
 ```
+
+> Hint: You may need to add some getters. And you can make use of the builder pattern.
 
 #### Updating the AuthorServiceImpl.java
 In the previous task we only added a log statement to the ``AuthorServiceImpl.registerAuthor`` implementation.
