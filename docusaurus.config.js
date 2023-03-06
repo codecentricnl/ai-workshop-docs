@@ -45,7 +45,7 @@ const config = {
       },
       items: [
         {
-          href: 'https://docs.google.com/presentation/d/1xoGRcQx9E_19msC_-rYQdrEVwVN0L30fNDiupI4bcBY/edit?usp=sharing',
+          href: 'https://docs.google.com/presentation/d/1pceXN7X3JUDXnApshcAbI82krvPwANxu7ugqG88Z9oA',
           target: '_blank',
           label: 'Slides',
           position: 'right',
