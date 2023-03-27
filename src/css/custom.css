@@ -55,10 +55,10 @@
   color: white;
 }
 
-.hero .container::before{
-  content:url('/static/img/openai.png'); /* with class ModalCarrot ??*/
-  position:relative; /*or absolute*/
-}
+/* .hero .container::before{
+  content:url('/static/img/openai.png');
+  position:relative; 
+} */
 
 .hero__subtitle {
   color: white;
@@ -79,4 +79,8 @@ main {
 
 aside {
   background: rgb(39,41,47);
+}
+
+.col > a.theme-edit-this-page {
+  display: none;
 }
