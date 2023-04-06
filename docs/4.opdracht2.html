@@ -4,40 +4,36 @@ sidebar_position: 3
 
 # Opdracht 2: Bookstore
 In de tweede opdracht ga je aan de slag om een wat gecompliceerdere applicatie te genereren. We gaan eerst beginnen met aanmaken van een nieuw project. Doe dat op de zelfde manier als in opdracht 1.
+In deze opdracht gaan we in twee delen een bookstore api ontwikkelen aan de hand van Karate, een plugin voor cucumber die speciaal is ontwikkeld voor API testen. Wilt u meer weten over Karate, kijk dan op de Github pagina van [Karate Labs](https://github.com/karatelabs/karate)
 
 ## 2.1 Feature file
-Als je een project hebt aangemaakt kan je aan ChatGPT vragen of deze een cucumber bestand kan genereren.
+Als je een project hebt aangemaakt kan je aan ChatGPT vragen of deze een karate cucumber bestand kan genereren.
 Hiervoor zijn de volgende requirements op gezet:
 
-I have an api on localhost:8080
-I want a Book object
-I want a list of Book objects
-I want to create a book with a title, author, isbn and price
-I want to get a book by the isbn
-I want to get a list of books
-I want to delete a book
-I want to edit a book
+- Ik heb een API draaien op localhost:8080
+- Ik wil een boek object
+- Ik wil een lijst van boeken kunnen ophalen
+- Ik wil een boek aan kunnen maken met een titel, schrijver, isbn-nummer en prijs
+- Ik wil een boek ophalen met een isbn-nummer
+- Ik wil een boek kunnen verwijderen
+- Ik wil een boek kunnen aanpassen
 
-Als je het bestand hebt gekregen, kan je deze op de zelfde locatie binnen je project plaatsen zoals je hiervoor in opdracht 1 ook hebt gedaan, dus in de folder:
+Als je het bestand hebt gekregen, dan moet je deze op een andere plek zetten dan bij een standaard cucumber file. Deze feature file moet in dezelfde directory geplaatst worden als de stepfile:
 ```
 - src
   - test
     - java
-    - resources
-      - features
-        - bookstoreAPI.feature
+      - com
+        - examples
+          - bookstoreAPI.feature
 ```
 
 ## 2.2 Stepfile
-Ook bij deze cucumber file heb je een step file nodig. Deze kan je ook laten genereren door ChatGPT. 
-Let op, het kan zijn dat het bestand te lang wordt voor ChatGPT, hierdoor zal deze afgekapt worden. Vraag dan aan ChatGPT of deze het bestand af kan maken.
+Ook bij deze cucumber file heb je een step file nodig. De stepfile voor een karate cucumber file is een stuk simpeler doordat de functies refereren naar de gegevens binnen de feature file.
+In het feature file staan namelijke alle benodigdheden die je nodig hebt voor de API request.
 
-Plaats dit bestand in de folder `src/test/java/com/example/bookstoreAPI`. 
-Je zal wellicht tegen het probleem aan lopen dat de methodes niet helemaal kloppen. Dit is dan ook een grote valkuil van AI op dit moment.
-AI kan voor een groot gedeelte helpen bij het maken van code, echter is het niet 100% perfect en hierdoor zal je alsnog een deel van het debuggen zelf moeten doen.
-Gelukkig kan ChatGPT je hier ook weer een deel bij helpen. 
-Als de java code niet helemaal correct is kan je de foutmelding kopieren en de vraag stellen aan ChatGPT of hij de methode waar het fout gaat op nieuw kan genereren rekening houdend met de foutmelding die je krijgt.
+Plaats dit bestand in de folder `src/test/java/com/example/BookstoreAPITest.java`.
 
+Let goed op, Binnen ```Karate.run("bookApi")``` moet je de juiste naam staan van het feature file.
 
 In de volgende opdracht gaan we proberen aan de hand van je cucumber file en step file de API te genereren.
-
