@@ -44,12 +44,12 @@ const config = {
         //srcDark: 'img/theexperts_WitOranje.png',
       },
       items: [
-        {
-          href: 'https://docs.google.com/presentation/d/1pceXN7X3JUDXnApshcAbI82krvPwANxu7ugqG88Z9oA',
-          target: '_blank',
-          label: 'Slides',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://docs.google.com/presentation/d/1pceXN7X3JUDXnApshcAbI82krvPwANxu7ugqG88Z9oA',
+        //   target: '_blank',
+        //   label: 'Slides',
+        //   position: 'right',
+        // },
         {
           type: 'dropdown',
           label: 'About',
