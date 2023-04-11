@@ -17,10 +17,17 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Start Tutorial
+            to="/docs/java/intro">
+            Start Java Tutorial
           </Link>
         </div>
+          <div className={styles.buttons}>
+              <Link
+                  className="button button--secondary button--lg"
+                  to="/docs/python/intro">
+                  Start Python Tutorial
+              </Link>
+          </div>
       </div>
     </header>
   );
