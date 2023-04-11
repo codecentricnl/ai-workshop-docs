@@ -84,3 +84,8 @@ aside {
 .col > a.theme-edit-this-page {
   display: none;
 }
+
+.buttons_AeoN,.buttons_src-pages-index-module {
+  float: left;
+  width: 50%;
+}
