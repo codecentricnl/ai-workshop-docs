@@ -4,7 +4,7 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Build your own application with BDD and ChatGPT',
-  tagline: 'AI Workshop - 20.04.2023',
+  tagline: 'AI Workshop - 26.09.2023',
   url: 'https://www.the-experts.nl',
   baseUrl: '/ai-workshop-docs/',
   onBrokenLinks: 'throw',
